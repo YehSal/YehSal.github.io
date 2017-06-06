@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
-import { slide as Menu } from 'react-burger-menu'
+import { fallDown as Menu } from 'react-burger-menu'
 import { decorator as reduxBurgerMenu } from 'redux-burger-menu';
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 
 class Navbar extends Component {
-  showSettings (event) {
-    event.preventDefault();
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: true,
-      width: 280
-    };
-  }
-
-  componentDidMount() {
-
-  }
-
   render() {
     return (
-      <Menu isOpen={ this.state.isOpen } width={ this.state.width }>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+      <Menu pageWrapId={ "page-wrap" }>
+        <header>Yehia Saleh</header>
+          <Link id="home" className="menu-item" to="/">
+            <span className="glyphicon glyphicon-home"></span> Home
+          </Link>
+          <Link id="about" className="menu-item" to="/about">
+            <span className="glyphicon glyphicon-user"></span> About
+          </Link>
+          <Link id="portfolio" className="menu-item" to="/portfolio">
+            <span className="glyphicon glyphicon-folder-open"></span> Portfolio
+          </Link>
+          <Link id="portfolio" className="menu-item" to="/blog">
+            <span className="glyphicon glyphicon-pencil"></span> Blog
+          </Link>
+          <Link id="contact" className="menu-item" to="/contact_me">
+            <span className="glyphicon glyphicon-envelope"></span> Contact Me
+          </Link>
       </Menu>
     );
   }
 }
 
-export default reduxBurgerMenu(Menu);
+export default Navbar;
