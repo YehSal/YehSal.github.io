@@ -1,0 +1,147 @@
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #1E1E20;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #FFFFFF;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #1E1E20;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #FFFFFF;
+  padding: 0.8em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bm-menu-wrap {
+  bottom: 0;
+  left: 0;
+}
+
+.menu-item {
+  color: #FFFFFF;
+  margin-bottom: 5px;
+  span {
+    margin-right: 20px;
+  }
+}
+
+.about-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+// Home page text effects
+
+$fadeUp: 100px;
+$fallDown: -200px;
+$delay: 50ms;
+$duration: 5s;
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: 'Cutive Mono', monospace;
+    letter-spacing: 4px;
+    font-size: 40px;
+    -webkit-font-smoothing: antialiased;
+}
+
+span {
+    display: inline-block;
+}
+
+.reg-text {
+    transform: translateY($fadeUp);
+    opacity: 0;
+
+    transition: transform $duration/1.5 ease-out, opacity $duration ease;
+
+    &.loaded {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter {
+    transition: transform $duration cubic-bezier(.43,.1,.57,.9), filter $duration ease, opacity $duration ease;
+    opacity: 0;
+    filter: blur(5px);
+
+    &:nth-of-type(2) {
+        transform: translateY($fallDown + 40px);
+        transition-duration: $duration/2;
+    }
+
+    &:nth-of-type(3) {
+        filter: blur(0);
+        transform: translateY($fallDown + 30px);
+        transition-duration: $duration/1.3;
+    }
+
+    &:nth-of-type(4) {
+        transform: translateY($fallDown);
+        transition-duration: $duration/1.5;
+    }
+
+    &:nth-of-type(5) {
+        transform: translateY($fallDown + 50px);
+        transition-duration: $duration/2;
+    }
+
+    &:nth-of-type(6) {
+        filter: blur(0);
+        transform: translateY($fallDown + 20px);
+        transition-duration: $duration/2.3;
+    }
+
+    &.loaded {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}

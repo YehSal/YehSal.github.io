@@ -17,10 +17,19 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css'],
+    modulesDirectories: [
+      'node_modules'
+    ]
   },
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  }
+  },
+  loaders: [
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
+      }
+  ]
 };
